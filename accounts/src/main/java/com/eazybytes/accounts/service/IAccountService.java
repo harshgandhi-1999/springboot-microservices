@@ -14,7 +14,7 @@ public interface IAccountService {
     /**
      *
      * @param mobileNumber - Input mobile number
-     * @return Account Detauls based on a given mobileNumber
+     * @return Account Details based on a given mobileNumber
      */
     CustomerDto fetchAccount(String mobileNumber);
 
@@ -24,4 +24,12 @@ public interface IAccountService {
      * @return boolean indication if the update of Account details is successful or not
      */
     boolean updateAccount(CustomerDto customerDto);
+
+
+    /**
+     *
+     * @param mobileNumber - Input Mobile Number
+     * @return boolean indicating if delete of Account details is successfull or not
+     */
+    boolean deleteAccount(String mobileNumber);
 }
