@@ -1,0 +1,17 @@
+spring:
+  config:
+    activate:
+      on-profile: "prod"
+
+
+build:
+  version: 1.0
+
+accounts:
+  message: "Welcome to EazyBank accounts related prod APIs "
+  contactDetails:
+    name: "Rohit - Production Manager"
+    email: "rohit@gmail.com"
+  onCallSupport:
+    - (555) 367-1346
+    - (555) 3248-3456
