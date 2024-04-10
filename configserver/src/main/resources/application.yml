@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: "configserver"
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+       native:
+        search-locations: "classpath:/config"
+    # search-locations: "file:///Users//eazybytes//Documents//config"
+
+server:
+  port: 8071
+
+
+# we should use hyphens instead of underscore in the file name to cloud config to work
