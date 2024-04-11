@@ -19,3 +19,10 @@ spring:
     import: "optional:configserver:http://localhost:8071/"
   profiles:
     active: "default"   # set default profile which needs to be activated
+
+# expose all actuator endpoints
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
