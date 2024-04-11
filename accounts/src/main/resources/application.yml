@@ -18,4 +18,4 @@ spring:
   config:
     import: "optional:configserver:http://localhost:8071/"
   profiles:
-    active: "prod"   # set default profile which needs to be activated
+    active: "default"   # set default profile which needs to be activated
