@@ -19,6 +19,13 @@ spring:
     import: "optional:configserver:http://localhost:8071/"
   profiles:
     active: "default"   # set default profile which needs to be activated
+  rabbitmq:
+    host: "localhost"
+    port: 5672
+    username: guest
+    password: guest
+
+# Use this to run rabbitmq container:  docker run -d --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.13-management
 
 # expose all actuator endpoints
 management:
