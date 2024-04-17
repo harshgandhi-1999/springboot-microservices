@@ -20,11 +20,6 @@ spring:
     import: "optional:configserver:http://localhost:8071/"
   profiles:
     active: "prod"   # set default profile which needs to be activated
-  rabbitmq:
-    host: "localhost"
-    port: 5672
-    username: "guest"
-    password: "guest"
 
 # expose all actuator endpoints
 management:
