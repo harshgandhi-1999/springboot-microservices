@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: "gatewayserver"
+  config:
+    import: "optional:configserver:http://localhost:8071/"
+  cloud:   ## to connect with discovery server (eureka server)
+    gateway:
+      discovery:
+        locator:   ## to locate all the details of the microservices, set enabled=true
+          enabled: true
+          lowerCaseServiceId: true   # to accept service names with lower case
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    gateway:
+      enabled: true
+  info:
+    env:
+      enabled: true
+
+info:
+  app:
+    name: "gatewayserver"
+    description: "Eazy Bank Gateway Server Application"
+    version: "1.0.0"
+
+logging:
+  level:
+    com:
+      eazybytes:
+        gatewayserver: DEBUG
