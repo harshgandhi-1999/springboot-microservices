@@ -7,7 +7,7 @@ spring:
     gateway:
       discovery:
         locator:   ## to locate all the details of the microservices, set enabled=true
-          enabled: true
+          enabled: false  # set to false for custom routing and not using default routes
           lowerCaseServiceId: true   # to accept service names with lower case
 
 management:
