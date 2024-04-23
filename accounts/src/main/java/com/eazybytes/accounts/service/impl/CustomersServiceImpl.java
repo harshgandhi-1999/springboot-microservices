@@ -46,10 +46,14 @@ public class CustomersServiceImpl implements ICustomersService {
         /*Here Feign client will connect to eureka server and try to get the loans and cards instance details and it
         will perform some load balancing and invoke the loans and cards microservice and get the the result.*/
         ResponseEntity<LoansDto> loansDtoResponseEntity = loansFeignClient.fetchLoanDetails(correlationId, mobileNumber);
-        customerDetailsDto.setLoansDto(loansDtoResponseEntity.getBody());
+        if(null != loansDtoResponseEntity){
+            customerDetailsDto.setLoansDto(loansDtoResponseEntity.getBody());
+        }
 
         ResponseEntity<CardsDto> cardsDtoResponseEntity = cardsFeignClient.fetchCardDetails(correlationId, mobileNumber);
-        customerDetailsDto.setCardsDto(cardsDtoResponseEntity.getBody());
+        if(null != cardsDtoResponseEntity){
+            customerDetailsDto.setCardsDto(cardsDtoResponseEntity.getBody());
+        }
 
         return customerDetailsDto;
 
