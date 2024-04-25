@@ -80,3 +80,11 @@ resilience4j.circuitbreaker:
       permittedNumberOfCallsInHalfOpenState: 2
       failureRateThreshold: 50
       waitDurationInOpenState: 10000
+
+resilience4j.retry:
+  configs:
+    default:
+      maxRetryAttempts: 3
+      waitDuration: 100  # set wait duration less than circuit breaker default to use this retry method. for ex set this to 100ms. If we set this greater than circuit breaker default timeout then circuit breaker fallback will be executed instead of ours.
+      enableExponentialBackoff: true
+      exponentialBackoffMultiplier: 2
