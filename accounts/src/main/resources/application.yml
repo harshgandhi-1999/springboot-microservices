@@ -88,3 +88,10 @@ resilience4j.retry:
       waitDuration: 500  # set wait duration less than circuit breaker default to use this retry method. for ex set this to 100ms. If we set this greater than circuit breaker default timeout then circuit breaker fallback will be executed instead of ours.
       enableExponentialBackoff: true
       exponentialBackoffMultiplier: 2
+      ignoreExceptions:
+        - java.lang.NullPointerException
+      retryExceptions:
+        - java.util.concurrent.TimeoutException
+
+#  When we define retryExceptions property we don't have to define ignoreExceptions property because
+#  all other exceptions are automatically ignored by resilience4j.

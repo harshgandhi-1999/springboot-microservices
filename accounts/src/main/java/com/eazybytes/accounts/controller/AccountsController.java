@@ -161,11 +161,14 @@ public class AccountsController {
                     )
             )
     })
-    @Retry(name = "getBuildInfo",fallbackMethod = "getBuildInfoFallback")
+    @Retry(name = "getBuildInfo", fallbackMethod = "getBuildInfoFallback")
     @GetMapping("/build-info")
     public ResponseEntity<String> getBuildInfo() {
         logger.debug("getBuildInfo() method Invoked");
-        throw new NullPointerException("dfdf");
+        /*throw new NullPointerException("dfdf");*/
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(buildVersion);
     }
 
     public ResponseEntity<String> getBuildInfoFallback(Throwable throwable) {
