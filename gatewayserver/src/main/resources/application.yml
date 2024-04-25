@@ -9,6 +9,14 @@ spring:
         locator:   ## to locate all the details of the microservices, set enabled=true
           enabled: false  # set to false for custom routing and not using default routes
           lowerCaseServiceId: true   # to accept service names with lower case
+      httpclient:  # global timeout configuration ( if using circuit breaker then this configuration will be overridden by circuit breaker internal timeout)
+        connect-timeout: 1000   # this is connection timeout for gateway server to connect to microservice
+        response-timeout: 2s    # this is response timeout from the microservice
+
+
+#  connect-timeout must be specified in milliseconds.
+#  response-timeout must be specified as a java.time.Duration
+
 
 management:
   endpoints:
