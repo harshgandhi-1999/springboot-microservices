@@ -11,7 +11,7 @@ spring:
           lowerCaseServiceId: true   # to accept service names with lower case
       httpclient:  # global timeout configuration ( if using circuit breaker then this configuration will be overridden by circuit breaker internal timeout)
         connect-timeout: 1000   # this is connection timeout for gateway server to connect to microservice
-        response-timeout: 2s    # this is response timeout from the microservice
+        response-timeout: 10s    # this is response timeout from the microservice
   data:
     redis:
       connect-timeout: 2s

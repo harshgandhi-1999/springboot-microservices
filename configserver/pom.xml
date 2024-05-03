@@ -56,7 +56,7 @@
 				<version>3.4.1</version>
 				<configuration>
 					<to>
-						<image>harsh043/${project.artifactId}:s10</image>
+						<image>harsh043/${project.artifactId}:s11</image>
 					</to>
 				</configuration>
 			</plugin>
