@@ -46,6 +46,10 @@ management:
   info:
     env:
       enabled: true
+  metrics:   ## we are telling to micrometer and prometheus
+    tags:    ## to group all metrics related to accounts microservice under application name of accounts
+      application: ${spring.application.name}
+
 
 endpoints:
   shutdown:

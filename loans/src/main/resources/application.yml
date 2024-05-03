@@ -41,6 +41,10 @@ management:
   info:
     env:
       enabled: true
+  metrics: ## we are telling to micrometer and prometheus
+    tags: ## to group all metrics related to loans microservice under application name of loans
+      application: ${spring.application.name}
+
 
 endpoints:
   shutdown:

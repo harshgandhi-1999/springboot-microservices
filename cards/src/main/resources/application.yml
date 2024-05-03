@@ -41,6 +41,10 @@ management:
   info:
     env:
       enabled: true
+  metrics: ## we are telling to micrometer and prometheus
+    tags: ## to group all metrics related to cards microservice under application name of cards
+      application: ${spring.application.name}
+
 
 endpoints:
   shutdown:
