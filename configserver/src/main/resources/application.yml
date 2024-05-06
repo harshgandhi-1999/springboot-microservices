@@ -43,5 +43,9 @@ encrypt:
 server:
   port: 8071
 
+logging:
+  pattern:
+    level: "%5p [${spring.application.name},%X{trace_id},%X{span_id}]"
+
 
 # we should use hyphens instead of underscore in the file name to cloud config to work
