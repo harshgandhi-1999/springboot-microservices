@@ -18,9 +18,18 @@ spring:
       host: localhost
       port: 6379
       timeout: 1s
+  security:
+    oauth2:
+      resourceserver:
+        jwt:  # during startup of resource server it will connect to keycloak server and download the public certificate
+          jwk-set-uri: "http://localhost:7080/realms/master/protocol/openid-connect/certs"  # using the public certificate resource server will validate the access token is really issued by key cloak server
+
 
 #  connect-timeout must be specified in milliseconds.
 #  response-timeout must be specified as a java.time.Duration
+
+# To run keycloak server:
+# docker run -d -p 7080:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:24.0.4 start-dev
 
 
 management:
