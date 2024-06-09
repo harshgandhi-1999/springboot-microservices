@@ -23,7 +23,21 @@ spring:
     openfeign:
       circuitbreaker:
         enabled: true
-
+    function:
+      definition: updateCommunication
+    stream:
+      bindings:
+        sendCommunication-out-0: # output binding - to write message to queue ## we can give any binding name since we have not defined any function inside accounts ms.
+          destination: send-communication  # in rabbitmq there should be queue of this same
+        updateCommunication-in-0: # input binding - to read message from queue
+          destination: communication-sent
+          group: ${spring.application.name}
+    rabbitmq:
+      host: localhost
+      port: 5672
+      username: guest
+      password: guest
+      connection-timeout: 10s
 # Use this to run rabbitmq container:  docker run -d --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.13-management
 
 # expose all actuator endpoints

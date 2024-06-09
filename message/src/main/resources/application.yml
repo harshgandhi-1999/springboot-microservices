@@ -7,3 +7,16 @@ spring:
   cloud:
     function:
       definition: email|sms  # compose two functions into single logical unit using pipe function
+    stream:
+      bindings:
+        emailsms-in-0:  # input binding # spring will automatically create this default binding name if we don't mention it.
+          destination: send-communication  # exchange name # in rabbitmq there should be queue of this same
+          group: ${spring.application.name}
+        emailsms-out-0:  # output binding
+          destination: communication-sent # exchange name # in rabbitmq there should be queue of this same
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    connection-timeout: 10s
